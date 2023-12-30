@@ -1,0 +1,13 @@
+﻿生成启动时间为 2023/12/10 星期日 21:47:12。
+     1>项目“N:\VS_Study2019\VS2015\MonitorFTP\ScanFiles\ScanFiles.vcxproj”在节点 4 上(Rebuild 个目标)。
+     1>ClCompile:
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv2 /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt scanfiles.cpp
+         scanfiles.cpp
+       Link:
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\VS_Study2019\VS2015\MonitorFTP\Debug\ScanFiles.exe" /INCREMENTAL /NOLOGO /LIBPATH:N:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\x86\vc14\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\VS_Study2019\VS2015\MonitorFTP\Debug\ScanFiles.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\VS_Study2019\VS2015\MonitorFTP\Debug\ScanFiles.lib" /MACHINE:X86 Debug\scanfiles.obj
+         ScanFiles.vcxproj -> N:\VS_Study2019\VS2015\MonitorFTP\Debug\ScanFiles.exe
+     1>已完成生成项目“N:\VS_Study2019\VS2015\MonitorFTP\ScanFiles\ScanFiles.vcxproj”(Rebuild 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:01.20

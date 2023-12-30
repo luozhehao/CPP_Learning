@@ -1,0 +1,24 @@
+﻿生成启动时间为 2023/12/9 星期六 22:56:09。
+     1>项目“N:\VS_Study2019\VS2015\Spider\spider_nku_yang\spider_nku_yang.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(65): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(184): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+         c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(2238): note: 参见“gethostbyname”的声明
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(210): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(214): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(220): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(346): note: 参见“strncpy”的声明
+     1>n:\vs_study2019\vs2015\spider\spider_nku_yang\main.cpp(221): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+       Link:
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\VS_Study2019\VS2015\Spider\Debug\spider_nku_yang.exe" /INCREMENTAL /NOLOGO /LIBPATH:N:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\x86\vc14\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\VS_Study2019\VS2015\Spider\Debug\spider_nku_yang.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\VS_Study2019\VS2015\Spider\Debug\spider_nku_yang.lib" /MACHINE:X86 Debug\main.obj
+         spider_nku_yang.vcxproj -> N:\VS_Study2019\VS2015\Spider\Debug\spider_nku_yang.exe
+     1>已完成生成项目“N:\VS_Study2019\VS2015\Spider\spider_nku_yang\spider_nku_yang.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:01.88
