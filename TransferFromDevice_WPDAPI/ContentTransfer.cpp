@@ -380,10 +380,6 @@ int TransferContentFromDeviceAuto(
 	// to begin the transfer.
 	//<SnippetTransferFrom4>
 
-	//selection[0] = objIDArr[i];
-	//selection[0] = wcObjIDArray[i];
-	//selection[0] = L"123";
-	//wcscpy_s(selection, L"123");
 	wcscpy_s(selection, pObjID);
 	wprintf(L"selection = %ws, pObjID = %ws\n", selection, pObjID);
 
@@ -468,19 +464,13 @@ int TransferContentFromDeviceAuto(
 			char* p_PathSel = W2A(wcPathSelection);
 			char arrDate[12] = { 0 };
 			sprintf_s(arrDate, "\\%d-%d-%d", year, month, day);
-			printf("***** arrDate = %s\n", arrDate);
+			//printf("***** arrDate = %s\n", arrDate);
 			strcpy_s(cPathSelArr, p_PathSel);
 			strcat_s(cPathSelArr, arrDate);
-			printf("***** pathDestArr = %s \n", cPathSelArr);
+			//printf("***** pathDestArr = %s \n", cPathSelArr);
 
 			if (_access(cPathSelArr, 0) == -1)	//如果文件夹不存在
 				_mkdir(cPathSelArr);				//则创建
-
-			//prefixPath = destinationDir + date_str;
-			//std::cout << "prefixPath: "<< prefixPath << std::endl;
-			//if (_access(prefixPath.c_str(), 0) == -1)	//如果文件夹不存在
-			//	_mkdir(prefixPath.c_str());				//则创建
-
 		}
 		else
 		{
@@ -492,53 +482,16 @@ int TransferContentFromDeviceAuto(
 	// creating a temporary file which is named the same as the object identifier string.
 	//<SnippetTransferFrom6>
 
-	//LPCWSTR pcPath = L"Q:\\Apple_2023\\TransferFromDevice\\";
-	WCHAR* pcPath = L"Q:\\Apple_2023\\TransferFromDevice\\";
-	//LPCWSTR FilePath = L" " + originalFileName;
-
 	WCHAR wcPath[128] = { 0 };
 	//wcscpy_s(wcPath, pcPath);
 
-	//不要忘记在使用完wchar_t*后delete[]释放内存
-	//wchar_t *multiByteToWideChar(const string& pKey)
-	//{
-		//char* pCStrKey = (const char*)prefixPath.c_str();
-		////第一次调用返回转换后的字符串长度，用于确认为wchar_t*开辟多大的内存空间
-		//int pSize = MultiByteToWideChar(CP_OEMCP, 0, pCStrKey, strlen(pCStrKey) + 1, NULL, 0);
-		//wchar_t *pWCStrKey = new wchar_t[pSize];
-		////第二次调用将单字节字符串转换成双字节字符串
-		//MultiByteToWideChar(CP_OEMCP, 0, pCStrKey, strlen(pCStrKey) + 1, pWCStrKey, pSize);
-		//return pWCStrKey;
-	//}
-	/******************/
-		//prefixPath += "\\";
-		//size_t size = prefixPath.length();
-		//wchar_t *wbuffer = new wchar_t[size + 1];
-		//MultiByteToWideChar(CP_ACP, 0, prefixPath.c_str(), size, wbuffer, size * sizeof(wchar_t));
-		//wbuffer[size] = 0;  //确保以 '\0' 结尾 
-		//wprintf(L"***wbuffer = %s\n", wbuffer);
-		//wcscpy_s(wcPath, wbuffer);
-		//wprintf(L"***wcPath = %s\n", wcPath);
-		//delete wbuffer;
-		//wbuffer = nullptr;
-	/******************/
-		//prefixPath += "\\";
-		//char* pCStrKey = (char*)prefixPath.c_str();
-		////第一次调用返回转换后的字符串长度，用于确认为wchar_t*开辟多大的内存空间
-		//int pSize = MultiByteToWideChar(CP_OEMCP, 0, pCStrKey, strlen(pCStrKey) + 1, NULL, 0);
-		//wchar_t *pWCStrKey = new wchar_t[pSize];
-		////第二次调用将单字节字符串转换成双字节字符串
-		//MultiByteToWideChar(CP_OEMCP, 0, pCStrKey, strlen(pCStrKey) + 1, pWCStrKey, pSize);
-		//wcscpy_s(wcPath, pWCStrKey);
-		//wprintf(L"***wcPath = %s\n", wcPath);
-		//delete pWCStrKey;
 	/******************/
 		strcat_s(cPathSelArr, "\\");
 		USES_CONVERSION;
 		wchar_t *wcPathSel = A2W(cPathSelArr);
-		wprintf(L"*** wcPathSel = %s\n", wcPathSel);
+		//wprintf(L"*** wcPathSel = %s\n", wcPathSel);
 		wcscpy_s(wcPath, wcPathSel);
-		wprintf(L"*** wcPath = %s\n", wcPath);
+		//wprintf(L"*** wcPath = %s\n", wcPath);
 	/*****************/
 	wcscat_s(wcPath, originalFileName);
 	wprintf(L"file wcPath = %s\n", wcPath);

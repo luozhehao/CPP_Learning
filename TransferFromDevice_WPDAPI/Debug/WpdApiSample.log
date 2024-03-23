@@ -1,22 +1,32 @@
-﻿生成启动时间为 2024/3/23 星期六 23:45:58。
-     1>项目“Q:\Apple_2023\CPP_Project\win_samples\PortableDeviceCOM\cpp_bak\WpdApiSample.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2024/3/24 星期日 0:19:56。
+     1>项目“N:\VS_Study2019\CPP_LearningProject\CPP_Learning\TransferFromDevice_WpdApi\WpdApiSample.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (WpdApiSample.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv2 /Zi /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\WpdApiSample.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt /GS ContentEnumeration.cpp WpdApiSample.cpp
-         WpdApiSample.cpp
-     1>WpdApiSample.cpp(336): warning C4018: “<”: 有符号/无符号不匹配
-     1>WpdApiSample.cpp(281): warning C4189: “eventCookie”: 局部变量已初始化但不引用
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv /IN:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\include\opencv2 /Zi /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\TransferFromDevice_WpdApi.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt /GS ContentEnumeration.cpp ContentProperties.cpp ContentTransfer.cpp DeviceCapabilities.cpp DeviceEnumeration.cpp DeviceEvents.cpp main.cpp
+         main.cpp
+     1>main.cpp(336): warning C4018: “<”: 有符号/无符号不匹配
+     1>main.cpp(281): warning C4189: “eventCookie”: 局部变量已初始化但不引用
+         DeviceEvents.cpp
+     1>DeviceEvents.cpp(31): warning C4838: 从“DWORD”转换到“int”需要收缩转换
+         DeviceEnumeration.cpp
+         DeviceCapabilities.cpp
+         ContentTransfer.cpp
+     1>n:\vs_study2019\cpp_learningproject\cpp_learning\transferfromdevice_wpdapi\contenttransfer.cpp(534): warning C4715: “TransferContentFromDeviceAuto”: 不是所有的控件路径都返回值
+         ContentProperties.cpp
+     1>ContentProperties.cpp(445): warning C4838: 从“DWORD”转换到“int”需要收缩转换
+     1>ContentProperties.cpp(558): warning C4838: 从“DWORD”转换到“int”需要收缩转换
          ContentEnumeration.cpp
        Link:
-         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\WpdApiSample.exe" /INCREMENTAL /NOLOGO /LIBPATH:N:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\x86\vc14\lib ShlWapi.lib PortableDeviceGuids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"Debug\WpdApiSample.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /IMPLIB:"Debug\WpdApiSample.lib" /MACHINE:X86 /SAFESEH /NXCOMPAT /SAFESEH Debug\ContentEnumeration.obj
+         K:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\TransferFromDevice_WpdApi.exe" /INCREMENTAL /NOLOGO /LIBPATH:N:\A_ARM_Linux\Atom_ARM_Files\006_OpenCV\opencv_cmake_build\install\x86\vc14\lib ShlWapi.lib PortableDeviceGuids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"Debug\TransferFromDevice_WpdApi.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /IMPLIB:"Debug\TransferFromDevice_WpdApi.lib" /MACHINE:X86 /SAFESEH /NXCOMPAT /SAFESEH Debug\ContentEnumeration.obj
          Debug\ContentProperties.obj
          Debug\ContentTransfer.obj
          Debug\DeviceCapabilities.obj
          Debug\DeviceEnumeration.obj
          Debug\DeviceEvents.obj
-         Debug\WpdApiSample.obj
-         WpdApiSample.vcxproj -> Q:\Apple_2023\CPP_Project\win_samples\PortableDeviceCOM\cpp_bak\Debug\WpdApiSample.exe
-     1>已完成生成项目“Q:\Apple_2023\CPP_Project\win_samples\PortableDeviceCOM\cpp_bak\WpdApiSample.vcxproj”(Build 个目标)的操作。
+         Debug\main.obj
+         WpdApiSample.vcxproj -> N:\VS_Study2019\CPP_LearningProject\CPP_Learning\TransferFromDevice_WpdApi\Debug\TransferFromDevice_WpdApi.exe
+     1>已完成生成项目“N:\VS_Study2019\CPP_LearningProject\CPP_Learning\TransferFromDevice_WpdApi\WpdApiSample.vcxproj”(Rebuild 个目标)的操作。
 
 已成功生成。
 
-已用时间 00:00:01.73
+已用时间 00:00:04.71
