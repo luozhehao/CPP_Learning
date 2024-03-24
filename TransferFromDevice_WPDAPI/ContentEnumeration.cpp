@@ -11,6 +11,10 @@
 #include <string>
 #include <iostream>
 
+#include "StringHandle.h"
+
+using namespace std;
+
 // This number controls how many object identifiers are requested during each call
 // to IEnumPortableDeviceObjectIDs::Next()
 //<SnippetContentEnum2>
@@ -24,12 +28,17 @@ WCHAR  wcObjIDArray[10] = { 0 };
 WCHAR  wcObjIDArr[50000][10] = { 0 };
 WCHAR  WobjID = 0;
 
+std::vector <std::wstring> newObjArr;
+
+
 void ConvertPCWSTRToWCHAR(PCWSTR src, WCHAR* dest, size_t destSize) 
 {
 	wcscpy_s(dest, destSize, src);
 }
 //PCWSTR wcstr = L"My String";
 //std::wstring wstr(wcstr);
+
+
 
 // Recursively called function which enumerates using the specified
 // object identifier as the parent.
@@ -43,6 +52,10 @@ void RecursiveEnumerate(
     wprintf(L"objectID=%ws, count = %d\n", objectID, objCount);
 	objIDArr[objCount] = objectID;
 	pcwObjID = objectID;
+
+	std::wstring tempStr = objectID;	
+	newObjArr.push_back(tempStr);
+	
 	//WobjIDArr[objCount] = (WCHAR)objectID;
 	int i = 0;
 	while (*pcwObjID)
@@ -80,7 +93,7 @@ void RecursiveEnumerate(
         {
             // Traverse the results of the Next() operation and recursively enumerate
             // Remember to free all returned object identifiers using CoTaskMemFree()
-            for (DWORD index = 0; (index < numFetched) && (objectIDArray[index] != nullptr); index++)  //  && (objCount < 50)
+            for (DWORD index = 0; (index < numFetched) && (objectIDArray[index] != nullptr) && (objCount < 300); index++)  //  && (objCount < 50)
             {
                 RecursiveEnumerate(objectIDArray[index], content);
 
@@ -117,6 +130,43 @@ void EnumerateAllContent(
     }
 
 	wprintf(L"\n EnumerateAllContent finish!\n\n" );
+
+	//writeArrayToFile(objArrVtr, L"ObjArray.txt");
+
+	// 读取文件中的字符串数组
+	std::vector<std::wstring> writtenArray;
+	readArrayFromFile(writtenArray, L"ObjArray.txt");
+
+	std::vector<std::wstring> sameArray;
+	// 输出新数组的内容
+	std::cout << "writtenArray:" << std::endl;
+	for (const auto& wtStr : writtenArray)
+	{
+		std::wcout << "writtenArray: "<< wtStr << std::endl;
+		for (const auto& objStr : newObjArr)
+		{
+			if (wtStr.compare(objStr) == 0)
+			{
+				std::wcout << "compare==0, wtStr=" << wtStr << "  objStr:"<< objStr << std::endl;
+				sameArray.push_back(wtStr);
+			}
+		}
+	}
+	std::cout << "sameArray size:" << sameArray.size()<< std::endl;
+
+	//for (vector<wstring>::iterator st = newObjArr.begin(); st != newObjArr.end(); st++)
+	for (vector<wstring>::iterator it = newObjArr.begin(); it != newObjArr.end(); it++)
+	{
+		for (const auto& sameStr : sameArray)
+		{
+			if (sameStr.compare(*it) == 0)
+			{
+				it = newObjArr.erase(it);
+			}
+		}
+	}
+	std::cout << "After erase the same, newObjArr size:" << newObjArr.size() << std::endl;
+
 }
 
 void EnumerateAllContent_Cnt(

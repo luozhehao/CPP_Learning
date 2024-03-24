@@ -11,6 +11,7 @@
 #include "stdafx.h"
 
 #include "CommonFunctions.h"
+#include "StringHandle.h"
 
 // Device enumeration
 DWORD EnumerateAllDevices();
@@ -255,9 +256,9 @@ void DoMenu()
     CoTaskMemFree(eventCookie);
 }
 
-/********************/
+/*************************************/
 
-
+/*************************************/
 void showUI()
 {
 	wprintf(L"\n\n");
@@ -311,38 +312,87 @@ void DoTransfer()
 		EnumerateAllContent(device.Get());
 		wprintf(L"\n There are [%d] photos on this device!\n\n", objCount);
 
+		UINT cnt = 0;
+		std::vector<PWCHAR> wcObjArr;
+		for ( auto& newStr : newObjArr)
+		{
+			std::wcout << "cnt = "<< cnt++ << ", newStr:" << newStr << std::endl;
+			wchar_t* wcNewObj = (wchar_t*)newStr.c_str();
+			wcObjArr.push_back(wcNewObj);
+			wprintf(L"+++wcNewObj = %ws\n", wcNewObj);
+		}
+		wprintf(L"\n The latest [%d] photos will be tranferred!\n", cnt);
+		wprintf(L"\n +++The latest [%d] photos will be tranferred!\n", wcObjArr.size());
 
-		wprintf(L"\n Photos numbered X through Y will be transferred. X < Y\n");
-		wprintf(L"\n Please enter the starting number X\n>");
+		wprintf(L"\n Do you confirm start to trasfer?  0:yes \n>");
 		ZeroMemory(selectionString, sizeof(selectionString));
 		hr = StringCchGetsW(selectionString, ARRAYSIZE(selectionString));
 		if (SUCCEEDED(hr))
 		{
 			selectionIndex = static_cast<UINT>(_wtoi(selectionString));
-			numberStartX = selectionIndex;
 		}
-
-		wprintf(L"\n Please enter the ending number Y\n>");
-		ZeroMemory(selectionString, sizeof(selectionString));
-		hr = StringCchGetsW(selectionString, ARRAYSIZE(selectionString));
-		if (SUCCEEDED(hr))
+		if (selectionIndex == 0)
 		{
-			selectionIndex = static_cast<UINT>(_wtoi(selectionString));
-			numberEndY = selectionIndex;
-		}
-		if (numberStartX < numberEndY)
-		{
-			wprintf(L"TransferContentFromDeviceAuto begin ...objCount = %d\n", objCount);
-			for (int j = numberStartX; j < numberEndY; j++)        //Transfer all photo to PC  , j = 4, j = 27358
+			int retTrans = -1;
+			std::wstring tbWtObj;
+			std::vector <std::wstring> toBeWriteObjArr;
+			for (auto& newWcObj : wcObjArr)
 			{
-				wprintf(L"\n\n\nStart Transfer wcObjIDArr[%d] = %ws\n", j, wcObjIDArr[j]);
-				TransferContentFromDeviceAuto(device.Get(), wcObjIDArr[j]);
+				wprintf(L"\n Transfer newWcObj = %ws\n\n", newWcObj);
+				retTrans = TransferContentFromDeviceAuto(device.Get(), newWcObj);
+				if (retTrans == 0)
+				{
+					tbWtObj = newWcObj;
+					toBeWriteObjArr.push_back(tbWtObj);
+				}
 			}
+			wprintf(L"\n +++There are [%d] photos have been tranferred!\n\n", toBeWriteObjArr.size());
+			writeArrayToFile(toBeWriteObjArr, L"ObjArray.txt");
 		}
-		else
-		{
-			wprintf(L"! X = %d, Y = %d\n", numberStartX, numberEndY);
-		}
+
+
+
+		/*********************************************************/
+		//wprintf(L"\n Photos numbered X through Y will be transferred. X < Y\n");
+		//wprintf(L"\n Please enter the starting number X\n>");
+		//ZeroMemory(selectionString, sizeof(selectionString));
+		//hr = StringCchGetsW(selectionString, ARRAYSIZE(selectionString));
+		//if (SUCCEEDED(hr))
+		//{
+		//	selectionIndex = static_cast<UINT>(_wtoi(selectionString));
+		//	numberStartX = selectionIndex;
+		//}
+
+		//wprintf(L"\n Please enter the ending number Y\n>");
+		//ZeroMemory(selectionString, sizeof(selectionString));
+		//hr = StringCchGetsW(selectionString, ARRAYSIZE(selectionString));
+		//if (SUCCEEDED(hr))
+		//{
+		//	selectionIndex = static_cast<UINT>(_wtoi(selectionString));
+		//	numberEndY = selectionIndex;
+		//}
+		/*******************************************************/
+
+		//if (numberStartX < numberEndY)
+		//{
+		//	wprintf(L"TransferContentFromDeviceAuto begin ...objCount = %d\n", objCount);
+		//	for (int j = numberStartX; j < numberEndY; j++)        //Transfer all photo to PC  , j = 4, j = 27358
+		//	{
+		//		wprintf(L"\n\n\nStart Transfer wcObjIDArr[%d] = %ws\n", j, wcObjIDArr[j]);
+		//		retTrans = TransferContentFromDeviceAuto(device.Get(), wcObjIDArr[j]);
+		//		if (retTrans == 0)
+		//		{
+		//			tbWtObj = wcObjIDArr[j];
+		//			toBeWriteObjArr.push_back(tbWtObj);
+		//		}
+		//	}
+		//	writeArrayToFile(toBeWriteObjArr, L"ObjArray.txt");
+		//}
+		//else
+		//{
+		//	wprintf(L"! X = %d, Y = %d\n", numberStartX, numberEndY);
+		//}
+
 		wprintf(L"Transfer completed!\n");
 
 	}
@@ -355,6 +405,11 @@ void DoTransfer()
 
 int _cdecl wmain(int /*argc*/, _In_ wchar_t* /*argv[]*/)
 {
+
+	//wchar2wstring_test();
+	//file_read_write_test();
+	//system("pause");
+
     // Enable the heap manager to terminate the process on heap error.
     HeapSetInformation(nullptr, HeapEnableTerminationOnCorruption, nullptr, 0);
 

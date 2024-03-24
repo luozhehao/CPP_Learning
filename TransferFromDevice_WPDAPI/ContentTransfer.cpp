@@ -361,6 +361,7 @@ int TransferContentFromDeviceAuto(
 		{
 			wprintf(L"! Failed to get IPortableDeviceContent from IPortableDevice, hr = 0x%lx\n", hr);
 			wprintf(L"! Device is disconnected, please try again later.\n");
+			return -1;
 		}
 	}
 	//</SnippetTransferFrom2>
@@ -393,7 +394,7 @@ int TransferContentFromDeviceAuto(
 		if (FAILED(hr))
 		{
 			wprintf(L"! Failed to get IStream (representing object data on the device) from IPortableDeviceResources, hr = 0x%lx\n", hr);
-			return 0;
+			return -1;
 		}
 	}
 	//</SnippetTransferFrom4>
@@ -530,6 +531,8 @@ int TransferContentFromDeviceAuto(
 
 	CoTaskMemFree(originalFileName);
 	originalFileName = nullptr;
+
+	return 0;
 	//</SnippetTransferFrom7>
 }
 

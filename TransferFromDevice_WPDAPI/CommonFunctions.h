@@ -19,6 +19,13 @@
 #include <string.h>
 #include <cstring>
 
+
+#include <vector>
+#include <fstream>
+
+extern std::vector <std::wstring> newObjArr;
+
+
 //2024.03.22
 #define PATH_SELECTION_BUFFER_SIZE 128    //Path  Buffer size for user selection
 
